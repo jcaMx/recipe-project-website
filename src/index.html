@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
   <title>Recipe Book</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body class="">
@@ -15,8 +16,8 @@
             </div>
             <div class="flex-1 flex justify-center">  
                 <ul class="text-[#800200] flex flex-col gap-8  md:items:center md:flex-row md:gap-[4vw]">
-                    <li class="hover:text-[#ffe77e]"><a href="#"></a>Meals</li>
-                    <li class="hover:text-[#ffe77e]"><a href="#"></a>Dessert</li>
+                    <li class="hover:text-[#ffe77e]"><a href="#meals"></a>Meals</li>
+                    <li class="hover:text-[#ffe77e]"><a href="#desserts"></a>Desserts</li>
                     <li class="hover:text-[#ffe77e]"><a href="#"></a>About</li>
                     <li class="hover:text-[#ffe77e]"><a href="#"></a>Blog</li>
                     <li class="hover:text-[#ffe77e]"><a href="#"></a>Contact</li>
@@ -24,53 +25,94 @@
             </div>
         </nav>
     </header>
-    <div class="m-20 grid-cols-3 flex gap-10"> 
-        <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
-            <div class = " w-full h-[270px] object-cover rounded-lg">
-                <img src="/images/adobo.png" alt="">
-            </div>
-            <p class="mt-4 text-left font-semibold text-[#800200]">Adobo</p>
-
-            <p class="text-left">A savory and tangy Filipino dish made by simmering meat in soy sauce, vinegar, garlic, and spices.</p>
-            <button id="adobo-btn" onclick="openModal('adobo')" data-modal-target="adobo-modal" data-modal-toggle="adobo-modal" class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300 " type= "button">
-                See full recipe 
-            </button>
-        </div>
+  
         
-        <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
-            <div class = " w-full h-[270px] object-cover ">
-                <img src="/images/tinola.png" class="rounded-lg" alt="">
-            </div>
-            <p class="mt-4 text-left font-semibold text-[#800200]">Tinola</p>
-
-            <p class="text-left">A light and aromatic chicken soup with green papaya, ginger, and malunggay leaves, perfect for rainy days.</p>
-            <button id="tinola-btn" onclick="openModal('tinola')" class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
-                See full recipe 
-            </button>
-        </div>
-        <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
-            <div class = " w-full h-[270px] object-cover ">
-                <img src="/images/sinigang.png" class="rounded-lg" alt="">
-            </div>
-            <p class="mt-4 text-left font-semibold text-[#800200]">Sinigang</p>
-
-            <p class="text-left">A comforting sour soup made with tamarind broth, vegetables, and your choice of meat or seafood.</p>
-            <button id="sinigang-btn" onclick="openModal('sinigang')"  class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
-                See full recipe 
-            </button>
-        </div>
-    </div>
-
-    <div id="modal" class="fixed inset-0 bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
-            <button class="absolute top-2 right-2 text-gray-600 text-xl" onclick="closeModal()">&times;</button>
-            <h2 id="modal-title" class="text-2xl font-bold"></h2>
-            <p id="modal-content" class="mt-4"></p>
-        </div>
-    </div>
     
+    <section id="meals">
+        <h1 class="ml-20 mt-10 text-[#800200] text-5xl font-bold">Meals</h1>
+        <div class="ml-20 mr-20 mt-10 mb-20 grid-cols-3 flex gap-10"> 
+            <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
+                <div class = " w-full h-[270px] object-cover rounded-lg">
+                    <img src="/images/adobo.png" alt="">
+                </div>
+                <p class="mt-4 text-left font-semibold text-[#800200]">Adobo</p>
+    
+                <p class="text-left">A savory and tangy Filipino dish made by simmering meat in soy sauce, vinegar, garlic, and spices.</p>
+                <button id="adobo-btn" data-recipe="adobo" onclick="openModal('adobo')" data-modal-target="adobo-modal" data-modal-toggle="adobo-modal" class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300 " type= "button">
+                    See full recipe 
+                </button>
+            </div>
+            
+            <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
+                <div class = " w-full h-[270px] object-cover ">
+                    <img src="/images/tinola.png" class="rounded-lg" alt="">
+                </div>
+                <p class="mt-4 text-left font-semibold text-[#800200]">Tinola</p>
+    
+                <p class="text-left">A light and aromatic chicken soup with green papaya, ginger, and malunggay leaves, perfect for rainy days.</p>
+                <button id="tinola-btn" data-recipe="adobo" onclick="openModal('tinola')" class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+                    See full recipe 
+                </button>
+            </div>
+            <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
+                <div class = " w-full h-[270px] object-cover ">
+                    <img src="/images/sinigang.png" class="rounded-lg" alt="">
+                </div>
+                <p class="mt-4 text-left font-semibold text-[#800200]">Sinigang</p>
+    
+                <p class="text-left">A comforting sour soup made with tamarind broth, vegetables, and your choice of meat or seafood.</p>
+                <button id="sinigang-btn" data-recipe="adobo" onclick="openModal('sinigang')"  class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+                    See full recipe 
+                </button>
+            </div>
+        </div>
+    
+        <div id="modal" class=" fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300 ">
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full max-h-[90vh] overflow-y-auto relative">
+                <button class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl transition-colors" onclick="closeModal()">&times;</button>
+                <h2 id="modal-title" class="text-2xl font-bold mb-3 text-[#800200] "></h2>
+                <div class=" w-full h-0.5 bg-amber-300 "></div>
+                <div id="modal-content" class="prose mt-2"></div>
+            </div>
+        </div>
+    
+    
+        <script src="/src/script.js"></script>  
 
-    <script src="/src/script.js"></script>  
+   <footer class="w-full h-40 bg-amber-300 grid-cols-4 flex gap-44 pt-10">
+        <div class=" ml-10"> 
+            <img src="/images/Tikim logo.png" class="w-24 h-50" alt="">
+            <p>Email: tikimdiaries.ph</p>
+            <p>Davao City, Philippines</p>
+        </div>
+
+        <div>
+            <h2>Explore</h2>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Blog</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Category</h2>
+            <ul>
+                <li>Meals</li>
+                <li>Desserts</li>
+                <li>Filipino Specialty</li>
+            </ul>
+        </div>
+        <div >
+            <h2>Subscribe</h2>
+            <form action="">
+                <input type="text" placeholder="Email here" class="border border-black rounded">
+            </form>
+            <button class="bg-[#800200] text-white px-12 rounded-md mt-3">Subscribe now</button>
+        </div>
+
+
+   </footer>
+
 
 
 
