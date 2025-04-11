@@ -10,108 +10,284 @@
 </head>
 <body class="">
     <header class="">
-        <nav class = "bg-amber-300 flex justify-between px-2 items-center ">
-            <div class="">
-                <img  class = "w-24 ml-16" h-auto src="/images/Tikim logo.png" alt="">
-            </div>
-            <div class="flex-1 flex justify-center">  
-                <ul class="text-[#800200] flex flex-col gap-8  md:items:center md:flex-row md:gap-[4vw]">
-                    <li class="hover:text-[#ffe77e]"><a href="#meals"></a>Meals</li>
-                    <li class="hover:text-[#ffe77e]"><a href="#desserts"></a>Desserts</li>
-                    <li class="hover:text-[#ffe77e]"><a href="#"></a>About</li>
-                    <li class="hover:text-[#ffe77e]"><a href="#"></a>Blog</li>
-                    <li class="hover:text-[#ffe77e]"><a href="#"></a>Contact</li>
-                </ul>
-            </div>
-        </nav>
+      <nav class="bg-[#800200] flex justify-between items-center px-6 py-4">
+        <div>
+          <img class="w-24" src="/images/Tikim logo-yellow.png" alt="Tikim Logo">
+        </div>
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-[#ffe77e] text-3xl focus:outline-none">
+            &#9776;
+          </button>
+        </div>
+        <div class="hidden md:flex flex-1 justify-center" id="nav-links">
+          <ul class="text-[#ffe77e] flex flex-col items-end md:flex-row md:items-center md:gap-[4vw] gap-4 mt-4 md:mt-0">
+            <li class="hover:text-amber-600"><a href="#meals">Meals</a></li>
+            <li class="hover:text-amber-600"><a href="#desserts">Desserts</a></li>
+            <li class="hover:text-amber-600"><a href="#about">About</a></li>
+            <li class="hover:text-amber-600"><a href="#blog">Blog</a></li>
+            <li class="hover:text-amber-600"><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    
+      <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+    
+        menuBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('hidden');
+        });
+      </script>
     </header>
-  
-        
     
-    <section id="meals">
-        <h1 class="ml-20 mt-10 text-[#800200] text-5xl font-bold">Meals</h1>
-        <div class="ml-20 mr-20 mt-10 mb-20 grid-cols-3 flex gap-10"> 
-            <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
-                <div class = " w-full h-[270px] object-cover rounded-lg">
-                    <img src="/images/adobo.png" alt="">
-                </div>
-                <p class="mt-4 text-left font-semibold text-[#800200]">Adobo</p>
-    
-                <p class="text-left">A savory and tangy Filipino dish made by simmering meat in soy sauce, vinegar, garlic, and spices.</p>
-                <button id="adobo-btn" data-recipe="adobo" onclick="openModal('adobo')" data-modal-target="adobo-modal" data-modal-toggle="adobo-modal" class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300 " type= "button">
-                    See full recipe 
-                </button>
-            </div>
-            
-            <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
-                <div class = " w-full h-[270px] object-cover ">
-                    <img src="/images/tinola.png" class="rounded-lg" alt="">
-                </div>
-                <p class="mt-4 text-left font-semibold text-[#800200]">Tinola</p>
-    
-                <p class="text-left">A light and aromatic chicken soup with green papaya, ginger, and malunggay leaves, perfect for rainy days.</p>
-                <button id="tinola-btn" data-recipe="adobo" onclick="openModal('tinola')" class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
-                    See full recipe 
-                </button>
-            </div>
-            <div class="w-[360px] h-[479px] bg-[#FDF9E5] p-4 overflow-x-auto rounded-lg">
-                <div class = " w-full h-[270px] object-cover ">
-                    <img src="/images/sinigang.png" class="rounded-lg" alt="">
-                </div>
-                <p class="mt-4 text-left font-semibold text-[#800200]">Sinigang</p>
-    
-                <p class="text-left">A comforting sour soup made with tamarind broth, vegetables, and your choice of meat or seafood.</p>
-                <button id="sinigang-btn" data-recipe="adobo" onclick="openModal('sinigang')"  class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
-                    See full recipe 
-                </button>
-            </div>
-        </div>
-    
-        <div id="modal" class=" fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300 ">
-            <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full max-h-[90vh] overflow-y-auto relative">
-                <button class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl transition-colors" onclick="closeModal()">&times;</button>
-                <h2 id="modal-title" class="text-2xl font-bold mb-3 text-[#800200] "></h2>
-                <div class=" w-full h-0.5 bg-amber-300 "></div>
-                <div id="modal-content" class="prose mt-2"></div>
-            </div>
-        </div>
-    
-    
-        <script src="/src/script.js"></script>  
 
-   <footer class="w-full h-40 bg-amber-300 grid-cols-4 flex gap-44 pt-10">
-        <div class=" ml-10"> 
-            <img src="/images/Tikim logo.png" class="w-24 h-50" alt="">
+
+    
+
+    <section id="hero" class="hero-image min-h-[70vh] flex items-center flex-col md:flex-row  bg-[#800200] sm:20px">
+        <div class="w-full md:w-3/4 lg:w-1/2 mx-auto ">
+          <img src="/images/adobo-hero.png" class="w-full h-[60vh] min-h-[300px] max-h-[600px]  object-contain" alt="">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 sm:px-12  flex">
+            <div class="max-w-2xl sm:20px ">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Authentic Filipino Flavors</h1>
+                <p class="text-lg md:text-xl mb-8 text-[#B4A8A8]">Experience the rich culinary heritage of the Philippines with our traditional recipes and modern twists.</p>
+                <div class="flex flex-col sm:flex-row gap-4 ">
+                  <a href="#meals">
+                    <button class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-medium transition-colors mb-auto sm:mb-36">
+                        Explore Recipes
+                    </button>
+                  </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEALS -->
+    <section id="meals" class="px-4 sm:px-6 lg:px-20">
+        <h1 class="mt-10 text-[#800200] text-3xl sm:text-4xl lg:text-5xl font-bold">Meals</h1>
+      
+        <div class="mt-10 mb-20 grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
+          
+          <!-- ADOBO CARD -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/adobo.png" alt="Adobo" class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Adobo</p>
+            <p class="text-left">
+              A savory and tangy Filipino dish made by simmering meat in soy sauce, vinegar, garlic, and spices.
+            </p>
+            <button id="adobo-btn" data-recipe="adobo" onclick="openModal('adobo')" data-modal-target="adobo-modal" data-modal-toggle="adobo-modal"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+      
+          <!-- TINOLA CARD -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/tinola.png" alt="Tinola" class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Tinola</p>
+            <p class="text-left">
+              A light and aromatic chicken soup with green papaya, ginger, and malunggay leaves, perfect for rainy days.
+            </p>
+            <button id="tinola-btn" data-recipe="tinola" onclick="openModal('tinola')"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+      
+          <!-- SINIGANG CARD -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/sinigang.png" alt="Sinigang" class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Sinigang</p>
+            <p class="text-left">
+              A comforting sour soup made with tamarind broth, vegetables, and your choice of meat or seafood.
+            </p>
+            <button id="sinigang-btn" data-recipe="sinigang" onclick="openModal('sinigang')"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+        </div>
+        
+        <div class="mt-10 mb-20 grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
+          <!-- KARE-KARE -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/kare-kare.jpeg" alt="Kare-kare" class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Kare-kare</p>
+            <p class="text-left">
+              A rich and creamy peanut stew made with oxtail, vegetables, and served with bagoong (shrimp paste) on the side.
+            </p>
+            <button id="kareKare-btn" data-recipe="kareKare" onclick="openModal('kareKare')" data-modal-toggle="kareKare-modal"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+          <!-- BICOL EXPRESS -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/bicol-express.jpg" alt="Sinigang" class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Bicol Express</p>
+            <p class="text-left">
+              A spicy and creamy coconut-based dish made with pork and chilies, originating from the Bicol region.
+            </p>
+            <button id="bicolExpress-btn" data-recipe="bicolExpress" onclick="openModal('bicolExpress')"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+          <!-- PAKBET -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/pinakbet.jpg" alt="Sinigang" class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Pinakbet</p>
+            <p class="text-left">
+              A healthy and flavorful vegetable medley sautéed with shrimp paste, often mixed with pork for added richness.
+            </p>
+            <button id="pakbet-btn" data-recipe="pakbet" onclick="openModal('pakbet')"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+        </div>
+        
+      
+      
+      
+        <!-- MODAL -->
+        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+          <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full max-h-[90vh] overflow-y-auto relative">
+            <button class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl transition-colors" onclick="closeModal()">&times;</button>
+            <h2 id="modal-title" class="text-2xl font-bold mb-3 text-[#800200]"></h2>
+            <div class="w-full h-0.5 bg-amber-300"></div>
+            <div id="modal-content" class="prose mt-2"></div>
+          </div>
+        </div>
+      
+        <script src="/src/script.js"></script>
+      </section>
+
+      <section id="desserts" class="px-4 sm:px-6 lg:px-20">
+        <h1 class="mt-10 text-[#800200] text-3xl sm:text-4xl lg:text-5xl font-bold">Desserts</h1>
+      
+        <div class="mt-10 mb-20 grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
+          
+          <!-- MANGO FLOAT -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/mango-float.jpg"  class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Mango Graham Float</p>
+            <p class="text-left">
+              A creamy, no-bake dessert made with layers of ripe mangoes, whipped cream, and crushed grahams chilled to perfection
+            </p>
+            <button id="mangoGrahamFloat-btn" data-recipe="mangoGrahamFloat" onclick="openModal('mangoGrahamFloat')" data-modal-target="mangoGrahamFloat-modal" data-modal-toggle="mangoGrahamFloat-modal"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+      
+          <!-- LECHE FLAN -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/leche-flan.jpg"  class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Leche Flan</p>
+            <p class="text-left">
+              A rich and silky caramel custard made with eggs, milk, and sugar, steamed or baked until perfectly smooth.
+            </p>
+            <button id="lecheFlan-btn" data-recipe="lecheFlan" onclick="openModal('lecheFlan')"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+      
+          <!-- HALO-HALO -->
+          <div class="w-full max-w-sm bg-[#FDF9E5] p-4 rounded-lg mx-auto">
+            <div class="w-full h-[270px] overflow-hidden rounded-lg">
+              <img src="/images/halo.jpg"  class="w-full h-full object-cover">
+            </div>
+            <p class="mt-4 text-left font-semibold text-[#800200]">Halo-Halo</p>
+            <p class="text-left">
+              A colorful and refreshing Filipino shaved ice dessert topped with sweetened fruits, jellies, beans, leche flan, and ube, finished with a splash of evaporated milk.
+            </p>
+            <button id="haloHalo-btn" data-recipe="haloHalo" onclick="openModal('haloHalo')"
+              class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
+              See full recipe
+            </button>
+          </div>
+        </div>
+                <!-- MODAL -->
+          <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full max-h-[90vh] overflow-y-auto relative">
+              <button class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl transition-colors" onclick="closeModal()">&times;</button>
+              <h2 id="modal-title" class="text-2xl font-bold mb-3 text-[#800200]"></h2>
+              <div class="w-full h-0.5 bg-amber-300"></div>
+              <div id="modal-content" class="prose mt-2"></div>
+            </div>
+          </div>
+        
+          <script src="/src/script.js"></script>
+    </section>
+      
+
+      <footer class="w-full bg-[#800200] px-6 py-10  ">
+        <div class="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto text-white">
+          
+        
+          <div>
+            <img src="/images/Tikim logo-yellow.png" class="w-24 h-auto mb-2" alt="Tikim Logo">
             <p>Email: tikimdiaries.ph</p>
             <p>Davao City, Philippines</p>
-        </div>
-
-        <div>
-            <h2>Explore</h2>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Blog</li>
+          </div>
+      
+        
+          <div>
+            <h2 class="font-semibold mb-2">Explore</h2>
+            <ul class="space-y-1">
+              <li>Home</li>
+              <li>About</li>
+              <li>Blog</li>
             </ul>
-        </div>
-        <div>
-            <h2>Category</h2>
-            <ul>
-                <li>Meals</li>
-                <li>Desserts</li>
-                <li>Filipino Specialty</li>
+          </div>
+      
+          
+          <div>
+            <h2 class="font-semibold mb-2">Category</h2>
+            <ul class="space-y-1">
+              <li>Meals</li>
+              <li>Desserts</li>
+              <li>Filipino Specialty</li>
             </ul>
-        </div>
-        <div >
-            <h2>Subscribe</h2>
-            <form action="">
-                <input type="text" placeholder="Email here" class="border border-black rounded">
+          </div>
+      
+          
+          <div>
+            <h2 class="font-semibold mb-2">Subscribe</h2>
+            <form>
+              <input type="text" placeholder="Email here" class="w-full border border-amber-50 rounded px-2 py-1">
             </form>
-            <button class="bg-[#800200] text-white px-12 rounded-md mt-3">Subscribe now</button>
+            <button class="bg-amber-600 text-white px-6 py-2 rounded-md mt-3 w-full hover:bg-amber-700 sm:w-auto" onclick="subscribe()">
+              Subscribe now
+            </button>
+          </div>
         </div>
 
 
-   </footer>
+        <!-- Confirmation modal -->
+
+      </footer>
+      
 
 
 
