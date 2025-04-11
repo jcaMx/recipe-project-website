@@ -6,6 +6,8 @@
   <link href="./output.css" rel="stylesheet">
   <title>Recipe Book</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </head>
 <body class="">
@@ -14,42 +16,73 @@
         <div>
           <img class="w-24" src="/images/Tikim logo-yellow.png" alt="Tikim Logo">
         </div>
-        <div class="md:hidden">
-          <button id="menu-btn" class="text-[#ffe77e] text-3xl focus:outline-none">
-            &#9776;
+
+        <!-- <div class="md:hidden">
+          <button id="menu-btn" class="text-[#ffe77e] text-3xl focus:outline-none lg:hidden items-end">
+            &#9776;   
           </button>
-        </div>
+        </div>   -->
+
+        <span class="text-3xl cursor-pointer mx-2 md:hidden block text-amber-400">
+          <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+        </span>
+      
         <div class="hidden md:flex flex-1 justify-center" id="nav-links">
-          <ul class="text-[#ffe77e] flex flex-col items-end md:flex-row md:items-center md:gap-[4vw] gap-4 mt-4 md:mt-0">
-            <li class="hover:text-amber-600"><a href="#meals">Meals</a></li>
-            <li class="hover:text-amber-600"><a href="#desserts">Desserts</a></li>
-            <li class="hover:text-amber-600"><a href="#about">About</a></li>
-            <li class="hover:text-amber-600"><a href="#blog">Blog</a></li>
-            <li class="hover:text-amber-600"><a href="#contact">Contact</a></li>
+          <ul class="md:flex z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-[#ffe77e] flex flex-col items-end md:flex-row md:items-center md:gap-[4vw] gap-4 mt-4 md:mt-0">
+            <li class="hover:text-amber-600 mx-4 my-6 md:my-0 "><a href="#meals" class="text-xl hover:text-cyan-500 duration-500">Meals</a></li>
+            <li class="hover:text-amber-600 mx-4 my-6 md:my-0"><a href="#desserts" class="text-xl hover:text-cyan-500 duration-500">Desserts</a></li>
+            <!-- <li class="hover:text-amber-600"><a href="#">About</a></li>
+            <li class="hover:text-amber-600"><a href="#">Blog</a></li> -->
+            <li class="hover:text-amber-600 "><a href="#footer" class="text-xl hover:text-cyan-500 duration-500">Contact</a></li>
           </ul>
-        </div>
+        </div> 
+
+        
       </nav>
-    
+
+
       <script>
+        function Menu(e){
+          let list = document.querySelector('ul');
+          e.name === 'menu' ? (e.name = "close",list.classList.add('top-[80px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[80px]'),list.classList.remove('opacity-100'))
+        }
+      </script>
+
+      <!-- <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('invisible', 'opacity-0');
+            modal.classList.remove('opacity-100', 'visible');
+        });
+
+        displayRecipes(currentPage);
+        displayPaginationNumbers();
+      </script> -->
+
+
+
+      <!-- <script>
         const menuBtn = document.getElementById('menu-btn');
         const navLinks = document.getElementById('nav-links');
     
         menuBtn.addEventListener('click', () => {
           navLinks.classList.toggle('hidden');
         });
-      </script>
+      </script> -->
     </header>
-    
-
-
-    
-
-    <section id="hero" class="hero-image min-h-[70vh] flex items-center flex-col md:flex-row  bg-[#800200] sm:20px">
-        <div class="w-full md:w-3/4 lg:w-1/2 mx-auto ">
+  
+    <section id="hero" class="hero-image min-h-[70vh] flex items-center flex-col md:flex-row  bg-[#800200] sm:20px p-10">
+        <div class="w-full md:w-3/4 lg:w-1/2 mx-auto lg:pb-10">
           <img src="/images/adobo-hero.png" class="w-full h-[60vh] min-h-[300px] max-h-[600px]  object-contain" alt="">
         </div>
-        <div class="max-w-7xl mx-auto px-6 sm:px-12  flex">
-            <div class="max-w-2xl sm:20px ">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12  flex pb-10">
+            <div class="max-w-2xl sm:20px text-center justify-center lg:text-left md:text-left ">
                 <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Authentic Filipino Flavors</h1>
                 <p class="text-lg md:text-xl mb-8 text-[#B4A8A8]">Experience the rich culinary heritage of the Philippines with our traditional recipes and modern twists.</p>
                 <div class="flex flex-col sm:flex-row gap-4 ">
@@ -219,7 +252,7 @@
             </div>
             <p class="mt-4 text-left font-semibold text-[#800200]">Halo-Halo</p>
             <p class="text-left">
-              A colorful and refreshing Filipino shaved ice dessert topped with sweetened fruits, jellies, beans, leche flan, and ube, finished with a splash of evaporated milk.
+              A colorful and refreshing Filipino shaved ice dessert topped with sweetened fruits, beans, jellies, and evaporated milk.
             </p>
             <button id="haloHalo-btn" data-recipe="haloHalo" onclick="openModal('haloHalo')"
               class="mt-4 w-full h-12 bg-[#800200] text-white rounded-md font-semibold hover:bg-[#600100] transition duration-300">
@@ -241,7 +274,7 @@
     </section>
       
 
-      <footer class="w-full bg-[#800200] px-6 py-10  ">
+      <footer id="footer" class="w-full bg-[#800200] px-6 py-10  ">
         <div class="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto text-white">
           
         
@@ -285,6 +318,9 @@
 
 
         <!-- Confirmation modal -->
+         <div>
+
+         </div>
 
       </footer>
       

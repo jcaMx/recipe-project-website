@@ -1,6 +1,15 @@
+function toggleDropdown(){
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('hidden');
+      });
+}
+
+
+
+
 function subscribe(){
     alert("Enter a valid email");
-}
+}   
 
 
 const recipes = {
